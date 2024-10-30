@@ -1,10 +1,10 @@
 // Scrieți o funcție pentru a găsi numărul de apariții al unei litere într-un șir
 
 const sir = "Vreau sa lucrez in IT";
-litera = "o"
+const litera = "v"
 
 function letterCount(sir, litera) {
-  const arr = sir.split('')
+  const arr = sir.toLowerCase().split('')
   let counter = 0;
   arr.forEach(element => {
     if (litera === element) {
