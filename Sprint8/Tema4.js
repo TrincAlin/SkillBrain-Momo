@@ -1,9 +1,10 @@
 // Returnează numărul de vocale dintr-un șir de caractere (string)
 const arr = ["calculate"]
-function vowelNum(arr) {
+const string = [...arr][0]
+function vowelNum(string) {
   let i = 0
   const vowels = "aeouAEIOU"
-  for (let char of arr[0]) {
+  for (let char of string) {
     if (vowels.includes(char)) {
       i++
     }
@@ -11,4 +12,4 @@ function vowelNum(arr) {
   return i
 }
 
-console.log(vowelNum(arr))
+console.log(vowelNum(string))
