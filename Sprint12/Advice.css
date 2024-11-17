@@ -1,0 +1,62 @@
+body {
+  background: #202632;
+}
+
+#id {
+  color: #53FFAB;
+  margin-bottom: 25px;
+}
+
+#advice {
+  color: #D9D9D9;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.underline {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+#button {
+  cursor: pointer;
+  position: relative;
+  background: none;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+#button:hover{
+  scale: 1.1;
+}
+
+#button img {
+  top: 1000%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.rectangle {
+  width: 30%;
+  min-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #313A49;
+  margin: auto;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+
+.back {
+  display: flex;
+  height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .rectangle {
+    width: 85%;
+    min-width: 0;
+  }
+}
