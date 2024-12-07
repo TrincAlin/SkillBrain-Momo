@@ -1,0 +1,40 @@
+.card-wrapper {
+  margin: 20px;
+  width: 250px;
+  height: 170px;
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 30px 60px 0px #20385526;
+  padding: 20px;
+}
+
+.task-number {
+  color: #B9B9B9;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-content p {
+  text-align: left;
+  color: #16171D;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  text-align: center;
+}
+
+.card-footer div{
+  text-align: left;
+}
+
