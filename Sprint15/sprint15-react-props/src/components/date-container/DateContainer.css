@@ -1,0 +1,17 @@
+div {
+  text-align: left;
+}
+
+.due-date {
+  margin: 0;
+  color: #999999;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.date {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #16171D;
+}

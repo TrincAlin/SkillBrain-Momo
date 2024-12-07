@@ -1,0 +1,14 @@
+.badge {
+  background: #F2F2F2;
+  border-radius: 20px;
+  padding: 0 10px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.badge p {
+  color: #808080;
+  font-size: 12px;
+  font-weight: 700;
+}
