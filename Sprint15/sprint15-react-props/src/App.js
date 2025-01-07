@@ -1,6 +1,5 @@
-import TaskCard from "./components/task-card/TaskCard.js";
 import "./App.css"
-
+import TaskContainer from "./components/task-container/TaskContainer.js";
 
 function App() {
 
@@ -56,31 +55,11 @@ function App() {
   ]
 
   return (
-    <div className="app-container">
-      <TaskCard
-        cardData={data[0]}
-      />
-      <TaskCard
-        cardData={data[1]}
-      />
-      <TaskCard
-        cardData={data[2]}
-      />
-      <TaskCard
-        cardData={data[3]}
-      />
-      <TaskCard
-        cardData={data[4]}
-      />
-      <TaskCard
-        cardData={data[5]}
-      />
-      <TaskCard
-        cardData={data[6]}
-      />
-      <TaskCard
-        cardData={data[7]}
-      />
+    <div className="background">
+      <h1>Task Manager</h1>
+      <div className="task-container">
+      <TaskContainer data={data}/>
+      </div>
     </div>
   )
 }
