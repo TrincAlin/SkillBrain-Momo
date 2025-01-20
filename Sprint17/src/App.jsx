@@ -1,10 +1,9 @@
 import React from "react";
 import Card from "./components/card/Card";
-import Input from "./components/input/Input";
 import TodoItem from "./components/todo-item/TodoItem";
-import TextArea from "./components/input/TextArea";
 import Button from "./components/button/Button";
 import "./App.css";
+import Modal from "./components/modal/Modal";
 
 const TODOS_MOCK = [
   {
@@ -53,12 +52,17 @@ function App() {
   const lastId = todos.sort(compareTodosIdFn).slice().pop().id;
   const nextId = React.useRef(parseInt(lastId) + 1);
   const uncompletedTodos = todos.filter(todo => !todo.completed);
-  const uncompletedTodosTags = uncompletedTodos.map(todo => <TodoItem key={todo.id} todo={todo} />);
+  const onCreateTodoItemFn = todo =>
+    <TodoItem key={todo.id} todo={todo} onDeleteTodo={() => onDeleteTodo(todo.id)}/>
+  const uncompletedTodosTags = uncompletedTodos.map(onCreateTodoItemFn);
   const completedTodos = todos.filter(todo => todo.completed);
-  const completedTodosTags = completedTodos.map(todo => <TodoItem key={todo.id} todo={todo} />);
+  const completedTodosTags = completedTodos.map(onCreateTodoItemFn);
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
+  const onModalClose = () => {
+    setIsModalOpen(false);
+  }
 
-  const onTodoCreate = (e) => {
-    e.preventDefault();
+  const onTodoCreate = (title, description) => {
     setTodos(todos => [...todos,
     {
       id: nextId.current.toString(),
@@ -66,13 +70,13 @@ function App() {
       description: description,
       completed: false,
     }]);
-    setTitle("");
-    setDescription("");
-    nextId.current = nextId.current + 1; 
+    
+    nextId.current = nextId.current + 1;
   }
 
-  const [title, setTitle] = React.useState("");
-  const [description, setDescription] = React.useState("");
+  const onDeleteTodo = (id) =>{
+    setTodos(todos.filter(todo => todo.id !== id));
+  }
 
   return (
     <div className="App">
@@ -80,21 +84,17 @@ function App() {
         {/* 
             This is your Create Card component.
           */}
-        <Card>
-          <h2>Create Todo</h2>
-          <form>
-            <Input onChange={(e) => { setTitle(e.target.value) }} placeholder="Title" type="text" value={title} />
-            <TextArea onChange={(e) => { setDescription(e.target.value) }} placeholder="Description" value={description} />
-            <Button type="submit" onClick={onTodoCreate}>Create</Button>
-          </form>
-        </Card>
+
+        <Modal isOpen={isModalOpen} onClose={onModalClose} onTodoCreate={onTodoCreate}>
+          
+        </Modal>
 
         {/* 
           My Todos
         */}
         <Card>
           <h1>My todos</h1>
-          <Button onClick={() => console.log("Open Modal")}>Add +</Button>
+          <Button onClick={() => setIsModalOpen(true)}>Add +</Button>
           <div className="list-container">
             {uncompletedTodosTags}
           </div>
