@@ -4,7 +4,7 @@ import Checkbox from "../checkbox/CheckBox";
 
 const TodoItem = ({ todo }) => {
   const handleCheckboxChange = (value) => {
-    console.log(value);
+    // console.log(value);
   };
 
   return (
